@@ -1,0 +1,28 @@
+
+.product-section__wrapper {
+}
+.wrapper-orange{
+  background-color: var(--orange-bg-color);
+
+}
+.product-section__inner {
+  width: var(--common-width);
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.product-section__title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 25px;
+
+}
+.product-section__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+
+.product-section__btn{
+  margin: 25px auto 0;
+}

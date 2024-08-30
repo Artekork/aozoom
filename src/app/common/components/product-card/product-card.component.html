@@ -1,0 +1,47 @@
+@if (product._id) {
+  <div class="product-card__img-section">
+    <img class="product-card__img" [src]="product.mainImageUrl | imageProductUrl" alt="">
+  </div>
+  <div class="product-card__desc-section">
+    <div class="product-card__desc-price">
+      <div class="product-card__desc-new-price">
+        {{product.price}}
+      </div>
+      <div class="product-card__desc-old-price">
+        {{product.oldPrice}}
+      </div>
+    </div>
+    <div class="product-card__desc-text">
+      {{product.description}}
+    </div>
+    <div class="product-card__desc-info">
+      <div class="product-card__info-rating">
+        <img class="product-card__info-rating-img" src="./assets/img/icons/star.svg" alt=""> {{product.rating}}
+      </div>
+      <div class="product-card__info-selled">
+        Продано {{product.selled}}
+      </div>
+      <div class="product-card__info-basket" (click)="toggleCart($event)">
+        <img class="product-card__info-basket-img" src="./assets/img/icons/basket.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="product-card__heart" (click)="toggleFavorite($event)">
+    <img 
+    class="product-card__heart-img" 
+    [src]="isFavorite ? './assets/img/icons/heart-fill.svg' : './assets/img/icons/heart.svg'" 
+    alt="heart icon">
+  </div>
+
+    @if (product.isHitProduct == true) {
+      <div class="product-card__type product-card__type_hit">
+        Хит
+      </div>
+
+    } @else if(product.isNewProduct == true) {
+      <div class="product-card__type product-card__type_new ">
+        Новинка
+    </div>
+    } 
+
+}

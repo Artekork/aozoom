@@ -1,0 +1,64 @@
+@import "./assets/fonts/golos/golostext";
+@import "./app/common/scss/normalize.scss";
+@import "./app/common/scss/notice.scss";
+
+a{
+  text-decoration: none;
+}
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --body-color: #ffffff;
+  --orange-accent-color: #FB6A00;
+  --red-accent-color: #FB0000;
+  --yellow-accent-color: #FFC200;
+  --gray-bg-color: #E6E8EC;
+  --gray-bg-section-color: #F1F2F3;
+  --dark-bg-section-color: #1D1F2A;
+  --gray-border-color: #E2E4E9;
+  --orange-bg-color: #FFF5EE;
+  --main-text-color: #000000;
+  --gray-text-color: #8F8F9F;
+  --darkGray-text-color: #9797A7;
+
+  --common-width: clamp(1100px, 80%, 1320px);
+}
+
+body{
+  background-color: var(--body-color);
+  color: var(--black);
+  font-family: 'Golos', sans-serif;
+}
+
+.common-btn {
+  font-size: 18px;
+  max-width: 270px;
+  width: 100%;
+  max-width: 270px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: var(--orange-accent-color);
+  color: var(--white);
+  border-radius: 10px;
+}
+.orange-btn {
+  background-color: var(--orange-accent-color);
+  color: var(--white);
+}
+.transparent-btn {
+  background-color: transparent;
+  border: 1px solid var(--orange-accent-color);
+  color: var(--orange-accent-color);
+}
+.orange-text{
+  color: var(--orange-accent-color);
+}
+
+
+
+//notice
+/* Import Google font - Poppins */

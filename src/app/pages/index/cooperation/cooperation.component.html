@@ -1,0 +1,51 @@
+<div class="cooperation-tittle">
+  Оптовое сотрудничество
+</div>
+<div class="cooperation-desc">
+  Приглашаем к сотрудничеству как розничных, так и оптовых покупателей. Гибкая система скидок и оперативная отправка заказов по всей территории Беларуси. Работаем с частными мастерами, студиями автосвета, торговыми организациями и т.д.
+</div>
+
+<form 
+  class="cooperation-form" 
+  [formGroup]="form"
+  (ngSubmit) = "onSubmit()"
+>
+  <div class="cooperation-form__tittle">
+    Форма для заполнения
+  </div>
+
+  <label class="cooperation-form__label">
+    <input
+    formControlName="name" 
+    type="text" placeholder="Ваше имя" class="cooperation-form__input">
+  </label>
+
+  <label class="cooperation-form__label">
+    <input
+    formControlName="phone"
+    type="tel" 
+    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+    placeholder="Контактный телефон" 
+    class="cooperation-form__input">
+  </label>
+
+  <label class="cooperation-form__label">
+    <input
+    formControlName="email" 
+    type="email" placeholder="E-mail" class="cooperation-form__input">
+  </label>
+
+  <label class="cooperation-form__label">
+    <input
+    formControlName="city" 
+    type="text" placeholder="Город" class="cooperation-form__input">
+  </label>
+
+  <label class="cooperation-form__label">
+    <input
+    formControlName="organization" 
+    type="text" placeholder="Название организации" class="cooperation-form__input">
+  </label>
+
+  <button type="submit" class="common-btn form-btn">Отправить заявку</button>
+</form>

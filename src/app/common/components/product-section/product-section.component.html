@@ -1,0 +1,20 @@
+<div class="product-section__wrapper" [ngClass]="className">
+  <div class="product-section__inner">
+    <div class="product-section__title">
+      {{sectionTittle}}
+    </div>
+    <div class="product-section__list">
+      
+      @for (product of products | slice:0:countToShow; track product._id) {
+        <a [href]="'product?id' + product._id">
+          <app-product-card
+            [product]="product"
+          ></app-product-card>
+        </a>
+      }
+    </div>
+    <a href="/profile" class="product-section__btn common-btn orange-btn">
+      Перейти в каталог
+    </a>
+  </div>
+</div>

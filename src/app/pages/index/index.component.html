@@ -1,0 +1,25 @@
+<app-banner-about-us></app-banner-about-us>
+
+<app-product-section
+[countToShow]="4"
+[sectionTittle] = "'Каталог товаров'"
+></app-product-section>
+
+<app-product-section
+[countToShow]="4"
+[sectionTittle] = "'Новинки'"
+[className] = "'wrapper-orange'"
+[filter] = "{isNewProduct: true}"
+[buttonLink] = "'hit'"
+></app-product-section>
+
+<app-product-section
+[countToShow]="4"
+[sectionTittle] = "'Выбор покупателей'"
+[filter] = "{isHitProduct: true}"
+[buttonLink] = "'new'"
+></app-product-section>
+
+<app-cooperation></app-cooperation>
+
+<app-contacts></app-contacts>
