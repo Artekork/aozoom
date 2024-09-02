@@ -8,5 +8,5 @@ export interface Product {
   rating: number;  
   selled: number;  
   name: string;
-  mainImageUrl: string;  // Новый параметр для URL изображения
+  imagesUrl: string;  // Новый параметр для URL изображения
 }

@@ -1,3 +1,4 @@
+//model.product.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const productSchema = new Schema({
@@ -9,7 +10,7 @@ const productSchema = new Schema({
   rating: { type: Number, required: true },
   selled: { type: Number, required: true },
   name: { type: String, required: true },
-  mainImageUrl: { type: String, required: true },
+  imagesUrl: { type: String, required: true },
 }) // сложные объекты в записях можно вынести в отдельные схемы
 
 const Product = mongoose.model('Product', productSchema)

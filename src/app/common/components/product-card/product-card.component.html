@@ -1,6 +1,6 @@
 @if (product._id) {
   <div class="product-card__img-section">
-    <img class="product-card__img" [src]="product.mainImageUrl | imageProductUrl" alt="">
+    <img class="product-card__img" [src]="product.imagesUrl| imageProductUrl" alt="">
   </div>
   <div class="product-card__desc-section">
     <div class="product-card__desc-price">
@@ -43,5 +43,4 @@
         Новинка
     </div>
     } 
-
 }
