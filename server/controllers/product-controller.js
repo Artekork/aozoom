@@ -1,5 +1,5 @@
-//product-routes.js
-const Product = require('../models/product'); 
+//product-controller.js
+const Product = require('../models/model.product'); 
 
 const handleError = (res, error) => {
   res.status(500).json({error})

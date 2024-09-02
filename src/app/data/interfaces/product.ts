@@ -1,3 +1,4 @@
+//product.ts
 export interface Product {
   _id: { $oid: string; };
   isHitProduct: boolean;

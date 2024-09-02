@@ -1,3 +1,4 @@
+//product-card.component.ts
 import { Component, Input, input } from '@angular/core';
 import { Product } from '../../../data/interfaces/product';
 import { ImageUrlPipe } from "../../../data/helpers/pipes/image-product-url.pipe";

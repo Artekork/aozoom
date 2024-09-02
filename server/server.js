@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Product = require('./models/product');  // Убедись, что путь правильный
+const Product = require('./models/model.product');  // Убедись, что путь правильный
 const productsRoutes = require('./routes/product-routes');  // Убедись, что путь правильный
 
 const connectUrl = "mongodb+srv://lampasUser:Artekoko.123@lampas.durta.mongodb.net/lampas";
