@@ -1,7 +1,7 @@
 <!-- product-card.component.html -->
-@if (product._id) {
+@if (product.id) {
   <div class="product-card__img-section">
-    <img class="product-card__img" [src]="product.imagesUrl| imageProductUrl" alt="">
+    <img class="product-card__img" [src]="product.imagesUrl[0]| imageProductUrl" alt="">
   </div>
   <div class="product-card__desc-section">
     <div class="product-card__desc-price">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="product-card__desc-text">
-      {{product.description}}
+      {{product.name}}
     </div>
     <div class="product-card__desc-info">
       <div class="product-card__info-rating">

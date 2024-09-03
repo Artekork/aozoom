@@ -6,11 +6,9 @@
     </div>
     <div class="product-section__list">
       
-      @for (product of products | slice:0:countToShow; track product._id) {
-        <a [href]="'product?id' + product._id">
-          <app-product-card
-            [product]="product"
-          ></app-product-card>
+      @for (product of products | slice:0:countToShow; track product.id) {
+        <a [routerLink]="['/product', product.id]">
+          <app-product-card [product]="product"></app-product-card>
         </a>
       }
     </div>

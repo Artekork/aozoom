@@ -1,13 +1,18 @@
 //product.ts
 export interface Product {
-  _id: { $oid: string; };
+  id: string;
   isHitProduct: boolean;
   isNewProduct: boolean;
-  price: number;  
-  oldPrice: number;  
-  description: string;  
-  rating: number;  
-  selled: number;  
+  price: number;
+  oldPrice: number;
+  description: string;
+  rating: number;
+  selled: number;
   name: string;
-  imagesUrl: string;  // Новый параметр для URL изображения
+  imagesUrl: string[]; // Обновлено для массива URL
+  details: {
+    smallDesc: string[];
+    allDesc: { className: string, inner: string }[];
+    details: [string][];
+  };
 }

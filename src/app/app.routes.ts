@@ -7,8 +7,9 @@ export const routes: Routes = [
   { path: "", component: LayoutComponent, children: // будет рендерить страницу по лэйауту (шаблону)
     [
       {path: "", component: IndexComponent},
-      {path: "product", component: ProductComponent},
-      {path: "products", component: ProductComponent},
+      {path: "product/:id", component: ProductComponent},
+      {path: "product", redirectTo: ""},
+      {path: "products", loadComponent: () => import("../app/pages/products/products.component").then((c) => c.ProductsComponent)}, // lazy load для оптиимзации приложения
     ]
   },
   //{ path: 'profile', component: LayoutComponent} // можно использовать без лэйаута(макета) когда не нужно рендерить хедер и футер

@@ -33,7 +33,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/app/data/scripts/scroll_anim.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

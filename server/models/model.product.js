@@ -1,18 +1,36 @@
 //model.product.js
+const { strict } = require('assert');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+// Схема для деталей продукта
+const productDetailsSchema = new Schema({
+  smallDesc: [String],
+  allDesc: [{ className: String, inner: String }],
+  details: [[String]]
+});
+
+// Схема для продукта
 const productSchema = new Schema({
+  id: {type: String, required: true },
   isHitProduct: { type: Boolean, required: true },
   isNewProduct: { type: Boolean, required: true },
   price: { type: Number, required: true },
   oldPrice: { type: Number, required: true },
-  description: { type: String, required: true },
+  name: { type: String, required: true },
   rating: { type: Number, required: true },
   selled: { type: Number, required: true },
-  name: { type: String, required: true },
-  imagesUrl: { type: String, required: true },
-}) // сложные объекты в записях можно вынести в отдельные схемы
+  imagesUrl: [String],
+  details: productDetailsSchema
+});
 
-const Product = mongoose.model('Product', productSchema)
+// Схема для кластера
+const clusterSchema = new Schema({
+  clusterName: { type: String, required: true },
+  products: [productSchema]
+});
 
-module.exports = Product;
+// Модель для кластера
+const Cluster = mongoose.model('Cluster', clusterSchema);
+
+module.exports = Cluster;

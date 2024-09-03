@@ -1,1 +1,10 @@
-<p>product page works!</p>
+<h1>TITLE PRODUCT PAGE</h1>
+
+<p>
+  id = {{id}}
+</p>
+
+<div *ngIf="isLoading">Загрузка, подождите...</div>
+<div *ngIf="!isLoading">
+  {{ product.name }}
+</div>

@@ -7,11 +7,15 @@ import { Product } from '../interfaces/product';
   providedIn: 'root'
 })
 export class GetProductService {
-  http = inject(HttpClient)
+  http = inject(HttpClient);
+
   constructor() { }
 
   getProducts(filter: any){
     return this.http.get<Product[]>("http://localhost:3000/getProducts", { params: filter });
   }
 
+  getProduct(productId: string){
+    return this.http.get<Product>(`http://localhost:3000/getProduct/${productId}`);
+  }
 }
