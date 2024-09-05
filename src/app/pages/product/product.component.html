@@ -4,7 +4,21 @@
   id = {{id}}
 </p>
 
+
+<!-- @if (subsc$ | async) {
+  Загрузка, подождите...
+  
+} @else {
+} -->
+<!-- 
 <div *ngIf="isLoading">Загрузка, подождите...</div>
 <div *ngIf="!isLoading">
   {{ product.name }}
-</div>
+</div> -->
+
+@if (product(); as product) {
+  {{ product.name }}
+
+} @else {
+  Загрузка, подождите...
+}

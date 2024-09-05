@@ -31,21 +31,16 @@
           Покупателям
         </div>
         <div class="footer-main__elem-list">
-          <a router href="#" class="footer-main__elem-list-link">
-            Каталог продукции
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            О магазине
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Способы оплаты и доставки
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Пользовательское соглашение
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Политика обработки <br>персональных данных
-          </a>
+          
+          @for (item of customers; track $index) {
+            <a 
+            [routerLink]="item.route" 
+            class="footer-main__elem-list-link"
+            [innerHTML]="item.text"
+            >
+            </a>
+          }
+
         </div>
       </div>
       <div class="footer-main__elem">
@@ -53,21 +48,15 @@
           Наша продукция
         </div>
         <div class="footer-main__elem-list">
-          <a href="#" class="footer-main__elem-list-link">
-            Светодиодные линзы
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Светодиодные модули <br>дальнего света
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Переходные рамки для линз
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Герметик и клей для фар
-          </a>
-          <a href="#" class="footer-main__elem-list-link">
-            Маски и бленды для линз
-          </a>
+          
+          @for (item of products; track $index) {
+            <a 
+            [routerLink]="item.route" 
+            class="footer-main__elem-list-link"
+            [innerHTML]="item.text"
+            >
+            </a>
+          }
         </div>
       </div>
       <div class="footer-main__elem">

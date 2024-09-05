@@ -63,4 +63,8 @@
   max-width: 600px;
   border: none;
   height: 60px;
+
+  &.unactive{
+    background-color: rgb(206, 206, 206);
+  }
 }

@@ -1,4 +1,5 @@
 // product-controller.js
+const { setTimeout } = require('timers/promises');
 const Cluster = require('../models/model.product');
 
 const handleError = (res, error) => {
@@ -8,9 +9,10 @@ const handleError = (res, error) => {
 const getProducts = (req, res) => {
   const filter = req.query; // { isNewProduct: 'true', isHitProduct: 'false' }
 
-  Cluster
-    .find() // Ищем все кластеры
+    Cluster
+    .find() 
     .then((clusters) => {
+
       let products = [];
 
       // Преобразуем значения фильтра к правильным типам
@@ -37,25 +39,12 @@ const getProducts = (req, res) => {
 
         products.push(...filteredProducts);
       });
-
-      res.status(200).json(products);
-    })
+      
+        res.status(200).json(products);
+      })
     .catch((err) => handleError(res, err));
 };
-const getMovie = (req, res) => {
-  Movie
-  .findById(req.params.id)
-  .then((movie) => {
-    res
-      .status(200)
-      .json(movie);
-  })
-  .catch((err) => handleError(res, err));
-};
 
-//
-
-//
 const getProduct = (req, res) => {
   const productId = req.params.id;
 
@@ -64,7 +53,6 @@ const getProduct = (req, res) => {
     .then(cluster => {
       if (cluster) {
 
-        // Ищем товар с указанным ID внутри найденного кластера
         const product = cluster.products.find(p => p.id === productId);
 
         if (product) {

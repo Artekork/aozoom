@@ -6,6 +6,12 @@
     </div>
     <div class="product-section__list">
       
+      <!-- @for (product of subscribers$ | async | slice:0:countToShow; track product.id) {
+        <a [routerLink]="['/product', product.id]">
+          <app-product-card [product]="product"></app-product-card>
+        </a>
+      } -->
+
       @for (product of products | slice:0:countToShow; track product.id) {
         <a [routerLink]="['/product', product.id]">
           <app-product-card [product]="product"></app-product-card>

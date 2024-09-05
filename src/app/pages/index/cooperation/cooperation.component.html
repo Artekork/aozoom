@@ -43,9 +43,23 @@
 
   <label class="cooperation-form__label">
     <input
+    oninput="isFillForm"
     formControlName="organization" 
     type="text" placeholder="Название организации" class="cooperation-form__input">
   </label>
 
-  <button type="submit" class="common-btn form-btn">Отправить заявку</button>
+  <button 
+    type="submit" 
+    class="common-btn form-btn"
+    [class.unactive] = "signalFillForm()"
+    [disabled] = "signalFillForm()"
+    (click)="isFillForm()"
+  >Отправить заявку</button>
+  
+  <a 
+  class="common-btn form-btn"
+  (click)="isFillForm()"
+>Тестовая кнопка</a>
+
 </form>
+

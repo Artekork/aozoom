@@ -7,57 +7,21 @@
 </div>
 
 <div class="contacts-section__info">
-
-  <div class="contact-info__elem">
-    <img class="contact-info__elem-img" src="./assets/img/icons/point.png" alt="">
-
-    <div class="contact-info__elem-desc">
-      <div class="contact-info__elem-desc_b">
-        г. Могилев, ул. Лазаренко 73В, 2 этаж слева
-      </div>
-      <div class="contact-info__elem-desc_g">
-        (ПН-ПТ с 11:00 до 19:00, СБ-ВС — выходной)
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-info__elem">
-    <img class="contact-info__elem-img" src="./assets/img/icons/phone.png" alt="">
-
-    <div class="contact-info__elem-desc">
-      <div class="contact-info__elem-desc_b">
-        +375 29 134 2171, +375 29 134 2171
-      </div>
-      <div class="contact-info__elem-desc_g">
-        (ПН-ПТ с 11:00 до 19:00, СБ-ВС — выходной)
+  @for (elem of informationElems; track "") {
+    <div class="contact-info__elem">
+      <img 
+        class="contact-info__elem-img" 
+        [src]="'./assets/img/icons/'+ elem.img" 
+        alt=""
+      >
+      <div class="contact-info__elem-desc">
+        <div class="contact-info__elem-desc_b">
+          {{elem.bText}}
+        </div>
+        <div class="contact-info__elem-desc_g">
+          {{elem.gText}}
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="contact-info__elem">
-    <img class="contact-info__elem-img" src="./assets/img/icons/mail.png" alt="">
-
-    <div class="contact-info__elem-desc">
-      <div class="contact-info__elem-desc_b">
-        sale&#64;lampas.by
-      </div>
-      <div class="contact-info__elem-desc_g">
-        Менеджер (розничный отдел)
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-info__elem">
-    <img class="contact-info__elem-img" src="./assets/img/icons/telegram.png" alt="">
-
-    <div class="contact-info__elem-desc">
-      <div class="contact-info__elem-desc_b">
-        +375 29 134 2171
-      </div>
-      <div class="contact-info__elem-desc_g">
-        Опт. отдел (ПН-ПТ 11:00-19:00), сотрудничество и общие вопросы
-      </div>
-    </div>
-  </div>
-
+  }
 </div>
