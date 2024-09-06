@@ -1,6 +1,8 @@
 // product-controller.js
 const { setTimeout } = require('timers/promises');
 const Cluster = require('../models/model.product');
+const { default: cluster } = require('cluster');
+const { find } = require('rxjs');
 
 const handleError = (res, error) => {
   res.status(500).json({ error });
@@ -74,6 +76,37 @@ const getProduct = (req, res) => {
 
 
 
+const getProductsFiltered = (req, res) => {
+  let findWord = req.query.findWord;
+
+  let products = [];
+
+    Cluster
+    .find() 
+    .then((clusters) => {
+      
+      clusters.forEach(cluster => {
+        cluster.products.forEach(product => {
+          if (product.name.toLowerCase().includes(findWord.toLowerCase())){
+            products.push(product)
+          }
+        });
+      });
+
+      
+      
+        res.status(200).json(products);
+      })
+    .catch((err) => handleError(res, err));
+};
+
+
+
+
+
+
+
+
 
 
 
@@ -82,5 +115,6 @@ const getProduct = (req, res) => {
 
 module.exports = {
   getProducts,
+  getProductsFiltered,
   getProduct,
 };

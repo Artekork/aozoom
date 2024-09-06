@@ -26,7 +26,6 @@ export class ProductComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.loadProduct();
-    
   }
 
   loadProduct(): void {

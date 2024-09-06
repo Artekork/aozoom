@@ -5,6 +5,12 @@
   Приглашаем к сотрудничеству как розничных, так и оптовых покупателей. Гибкая система скидок и оперативная отправка заказов по всей территории Беларуси. Работаем с частными мастерами, студиями автосвета, торговыми организациями и т.д.
 </div>
 
+<pre>
+  @if (form.controls.phone.errors){
+    {{form.controls.phone.errors | json}}
+  }
+</pre>
+
 <form 
   class="cooperation-form" 
   [formGroup]="form"
@@ -16,36 +22,72 @@
 
   <label class="cooperation-form__label">
     <input
+    [ngClass]=" (submitted && form.controls.name.invalid)  ? 'is-invalid' : ''"
     formControlName="name" 
     type="text" placeholder="Ваше имя" class="cooperation-form__input">
+
+    <div *ngIf="submitted && form.controls.name.invalid" class="invalid-feedback">
+      <div *ngIf="submitted && form.controls.name.errors?.['required']">Это обязательное поле</div>
+    </div>
   </label>
 
   <label class="cooperation-form__label">
     <input
+    #phoneInput
     formControlName="phone"
-    type="tel" 
-    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+    type="phone" 
     placeholder="Контактный телефон" 
-    class="cooperation-form__input">
+    minlength="5"
+    class="cooperation-form__input"
+    [ngClass]=" (submitted && form.controls.phone.invalid)  ? 'is-invalid' : ''"
+    >
+
+    <div *ngIf="submitted && form.controls.phone.invalid" class="invalid-feedback">
+      <div *ngIf="submitted && form.controls.phone.errors?.['required']">Это обязательное поле</div>
+      <div *ngIf="submitted && form.controls.phone.errors?.['minlength']">Введите телефон полностью</div>
+    </div>
   </label>
 
   <label class="cooperation-form__label">
     <input
     formControlName="email" 
-    type="email" placeholder="E-mail" class="cooperation-form__input">
+
+    [ngClass]=" (submitted && form.controls.email.invalid)  ? 'is-invalid' : ''"
+
+    type="email" 
+    placeholder="E-mail" 
+    class="cooperation-form__input"
+    (input)="onFieldChange()"
+    >
+    
+
+    <div *ngIf="submitted && form.controls.email.invalid" class="invalid-feedback">
+      <div *ngIf="submitted && form.controls.email.errors?.['required']">Это обязательное поле</div>
+      <div *ngIf="submitted && form.controls.email.errors?.['email']">Неверный E-mail</div>
+    </div>
   </label>
 
   <label class="cooperation-form__label">
     <input
-    formControlName="city" 
+    [ngClass]=" (submitted && form.controls.city.invalid)  ? 'is-invalid' : ''"formControlName="city" 
     type="text" placeholder="Город" class="cooperation-form__input">
+    
+    
+    <div *ngIf="submitted && form.controls.city.invalid" class="invalid-feedback">
+      <div *ngIf="submitted && form.controls.city.errors?.['required']">Это обязательное поле</div>
+    </div>
   </label>
 
   <label class="cooperation-form__label">
     <input
     oninput="isFillForm"
-    formControlName="organization" 
+    [ngClass]=" (submitted && form.controls.organization.invalid)  ? 'is-invalid' : ''"formControlName="organization" 
     type="text" placeholder="Название организации" class="cooperation-form__input">
+    
+    
+    <div *ngIf="submitted && form.controls.organization.invalid" class="invalid-feedback">
+      <div *ngIf="submitted && form.controls.organization.errors?.['required']">Это обязательное поле</div>
+    </div>
   </label>
 
   <button 
@@ -53,12 +95,11 @@
     class="common-btn form-btn"
     [class.unactive] = "signalFillForm()"
     [disabled] = "signalFillForm()"
-    (click)="isFillForm()"
   >Отправить заявку</button>
   
   <a 
   class="common-btn form-btn"
-  (click)="isFillForm()"
+  (click)="patchForm()"
 >Тестовая кнопка</a>
 
 </form>

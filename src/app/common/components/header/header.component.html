@@ -1,3 +1,4 @@
+<!-- header-component.html -->
 <header class="header__inner">
   <div class="header__info">
     <div class="header__info-section">
@@ -45,7 +46,23 @@
 
   </div>
 
-  <div class="header__content">
+
+
+
+
+
+  
+
+  
+<!--  
+  
+      -->
+    
+  
+</header>
+
+<div class="header__content">
+  <div class="header__content-wrapper">
     <div class="header__content-section">
       <a routerLink="/" class="header__stroke-elem">
         <img src="/assets/img/icons/lamp.svg" class="header__logo-img" alt="">
@@ -55,7 +72,14 @@
       </a>
     </div>
     <div class="header__content-search">
-      <input class="header__content-search-input" type="text" placeholder="Введите текст" name="" id="">
+      <input 
+      class="header__content-search-input" 
+      type="text" 
+      placeholder="Введите" 
+      name="" 
+      [(ngModel)]="findWord"
+      id=""
+      (input)="onSearchChange($event)">
       <button class="header__content-search-btn">
         <img src="/assets/img/icons/search.svg" class="header__logo-img" alt="">
         Найти
@@ -72,5 +96,36 @@
 
 
 
+
+  @if (isActiveSearch()) {
+    <div class="search-items">
+      <div class="items-wrapper">
+
+        <div (click)="cancelSearch()" class="search-items__close">
+          <img class="search-items__close-img" src="./assets/img/icons/close.png" alt="">
+        </div>
+
+        @if (filteredProducts().length === 0){
+
+          нет товаров
+
+        } @else {
+          @for (item of filteredProducts(); track $index) {
+            <div class="item">
+              <img src="./assets/img/products/1.png" alt="">
+              <div class="item-text">
+                {{item.name}}
+              </div>
+            </div>
+          }
+        }
+           
+      </div>
+    </div>
+  }
+
   
-</header>
+
+
+
+</div>
