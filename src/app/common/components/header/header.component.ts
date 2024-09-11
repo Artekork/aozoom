@@ -6,10 +6,11 @@ import { Product } from '../../../data/interfaces/product';
 import { debounceTime, Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchItemComponent } from "./search-item/search-item.component";
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, SearchItemComponent],
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

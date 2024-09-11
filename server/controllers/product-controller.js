@@ -72,10 +72,6 @@ const getProduct = (req, res) => {
     });
 };
 
-
-
-
-
 const getProductsFiltered = (req, res) => {
   let findWord = req.query.findWord;
 
@@ -99,18 +95,6 @@ const getProductsFiltered = (req, res) => {
       })
     .catch((err) => handleError(res, err));
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = {

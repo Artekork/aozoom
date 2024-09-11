@@ -20,6 +20,7 @@ const productSchema = new Schema({
   name: { type: String, required: true },
   rating: { type: Number, required: true },
   selled: { type: Number, required: true },
+  count: { type: Number, required: true },
   imagesUrl: [String],
   details: productDetailsSchema
 });

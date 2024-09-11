@@ -13,6 +13,7 @@
       "name": "Билед модули Sariti S7 2024, 3 дюйма, 12V, 5500К, встроенный драйвер, 49W/58W, 12V (комплект, 2шт)",
       "rating": 4.6,
       "selled": 556,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-001/1.png",
         "headlights/h-001/2.png"
@@ -134,6 +135,7 @@
       "name": "Билед модули Morimoto Mini D2S 5.0, 3 дюйма, 12V, 5500K, 50W",
       "rating": 4.8,
       "selled": 340,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-002/1.png",
         "headlights/h-002/2.png"
@@ -211,6 +213,7 @@
       "name": "Билед модули Optima Pro 4.0, 3 дюйма, 12V, 6000K, 45W",
       "rating": 4.5,
       "selled": 290,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-003/1.png",
         "headlights/h-003/2.png"
@@ -284,6 +287,7 @@
       "name": "Билед модули LaserLight 3.0, 12V, 5000K, 55W",
       "rating": 4.7,
       "selled": 510,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-004/1.png",
         "headlights/h-004/2.png"
@@ -357,6 +361,7 @@
       "name": "Билед модули XenonMaster 2.0, 3 дюйма, 12V, 4300K, 40W",
       "rating": 4.4,
       "selled": 410,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-005/1.png",
         "headlights/h-005/2.png"
@@ -430,6 +435,7 @@
       "name": "Билед модули ProLight 5.0, 3 дюйма, 12V, 6000K, 65W",
       "rating": 4.9,
       "selled": 620,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-006/1.png",
         "headlights/h-006/2.png"
@@ -503,6 +509,7 @@
       "name": "Билед модули CompactBeam 2.0, 3 дюйма, 12V, 5500K, 50W",
       "rating": 4.3,
       "selled": 380,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-007/1.png",
         "headlights/h-007/2.png"
@@ -576,6 +583,7 @@
       "name": "Билед модули UltraLight 4.0, 3 дюйма, 12V, 5000K, 60W",
       "rating": 4.6,
       "selled": 450,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-008/1.png",
         "headlights/h-008/2.png"
@@ -649,6 +657,7 @@
       "name": "Билед модули NightVision 6.0, 3 дюйма, 12V, 6000K, 70W",
       "rating": 4.9,
       "selled": 700,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-009/1.png",
         "headlights/h-009/2.png"
@@ -722,6 +731,7 @@
       "name": "Билед модули LEDStar 3.0, 3 дюйма, 12V, 5500K, 45W",
       "rating": 4.4,
       "selled": 340,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-010/1.png",
         "headlights/h-010/2.png"
@@ -795,6 +805,7 @@
       "name": "Билед модули PowerBeam 5.0, 3 дюйма, 12V, 5000K, 55W",
       "rating": 4.5,
       "selled": 420,
+      "count": 22,
       "imagesUrl": [
         "headlights/h-011/1.png",
         "headlights/h-011/2.png"
@@ -876,6 +887,7 @@
       "name": "Парковочные огни LED Vision 2.0, 12V, 6000K",
       "rating": 4.7,
       "selled": 412,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-001/1.png",
         "parkingLights/p-001/2.png"
@@ -945,6 +957,7 @@
       "name": "Парковочные огни Xenon Pro 3.0, 12V, 5000K",
       "rating": 4.8,
       "selled": 328,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-002/1.png",
         "parkingLights/p-002/2.png"
@@ -1014,6 +1027,7 @@
       "name": "Парковочные огни Halogen X2, 12V, 5500K",
       "rating": 4.4,
       "selled": 215,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-003/1.png",
         "parkingLights/p-003/2.png"
@@ -1083,6 +1097,7 @@
       "name": "Парковочные огни OLED Light 2.5, 12V, 6000K",
       "rating": 4.6,
       "selled": 321,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-004/1.png",
         "parkingLights/p-004/2.png"
@@ -1152,6 +1167,7 @@
       "name": "Парковочные огни LaserBeam 3.0, 12V, 5500K",
       "rating": 4.5,
       "selled": 284,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-005/1.png",
         "parkingLights/p-005/2.png"
@@ -1221,6 +1237,7 @@
       "name": "Парковочные огни Smart LED 4.0, 12V, 6000K",
       "rating": 4.7,
       "selled": 399,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-006/1.png",
         "parkingLights/p-006/2.png"
@@ -1290,6 +1307,7 @@
       "name": "Парковочные огни Hybrid LED 2.5, 12V, 5000K",
       "rating": 4.3,
       "selled": 187,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-007/1.png",
         "parkingLights/p-007/2.png"
@@ -1359,6 +1377,7 @@
       "name": "Парковочные огни Ultra Bright 3.5, 12V, 6000K",
       "rating": 4.9,
       "selled": 470,
+      "count": 22,
       "imagesUrl": [
         "parkingLights/p-008/1.png",
         "parkingLights/p-008/2.png"
@@ -1436,6 +1455,7 @@
       "name": "Внутреннее освещение LED Glow 1.0, 12V, 4000K",
       "rating": 4.6,
       "selled": 345,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-001/1.png",
         "insideLight/i-001/2.png"
@@ -1505,6 +1525,7 @@
       "name": "Внутреннее освещение RGB LED 2.0, 12V",
       "rating": 4.8,
       "selled": 289,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-002/1.png",
         "insideLight/i-002/2.png"
@@ -1574,6 +1595,7 @@
       "name": "Внутреннее освещение Touch LED 3.0, 12V, 3500K",
       "rating": 4.5,
       "selled": 198,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-003/1.png",
         "insideLight/i-003/2.png"
@@ -1643,6 +1665,7 @@
       "name": "Внутреннее освещение Fiber Optic 2.5, 12V, 5000K",
       "rating": 4.7,
       "selled": 412,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-004/1.png",
         "insideLight/i-004/2.png"
@@ -1712,6 +1735,7 @@
       "name": "Внутреннее освещение Ambient LED 4.0, 12V, 4000K",
       "rating": 4.4,
       "selled": 175,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-005/1.png",
         "insideLight/i-005/2.png"
@@ -1781,6 +1805,7 @@
       "name": "Внутреннее освещение LED Strip 5.0, 12V, 6000K",
       "rating": 4.8,
       "selled": 310,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-006/1.png",
         "insideLight/i-006/2.png"
@@ -1850,6 +1875,7 @@
       "name": "Внутреннее освещение LED Panel 3.5, 12V, 3500K",
       "rating": 4.3,
       "selled": 220,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-007/1.png",
         "insideLight/i-007/2.png"
@@ -1919,6 +1945,7 @@
       "name": "Внутреннее освещение Dynamic LED 6.0, 12V, 5000K",
       "rating": 4.9,
       "selled": 275,
+      "count": 22,
       "imagesUrl": [
         "insideLight/i-008/1.png",
         "insideLight/i-008/2.png"

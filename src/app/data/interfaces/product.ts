@@ -9,6 +9,7 @@ export interface Product {
   rating: number;
   selled: number;
   name: string;
+  count: number;
   imagesUrl: string[]; // Обновлено для массива URL
   details: {
     smallDesc: string[];

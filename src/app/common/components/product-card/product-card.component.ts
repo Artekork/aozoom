@@ -2,7 +2,7 @@
 import { Component, Input, input } from '@angular/core';
 import { Product } from '../../../data/interfaces/product';
 import { ImageUrlPipe } from "../../../data/helpers/pipes/image-product-url.pipe";
-import { NoticeService } from '../../../data/services/notice.service'; // Укажите правильный путь
+import { NoticeService } from '../../../data/services/notice.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,17 +20,23 @@ export class ProductCardComponent {
   isCart: boolean = false;
 
   toggleFavorite(event: Event): void {
-    event.preventDefault(); // Останавливаем переход по ссылке
+    event.preventDefault();  
+    event.stopPropagation(); 
     this.isFavorite = !this.isFavorite;
 
-    this.isFavorite == true ? this.noticeService.createToast('success', 'Товар добавлен в избранное!') : this.noticeService.createToast('success', 'Товар удалён из избранного!');
+    this.isFavorite == true 
+    ? this.noticeService.createToast('success', 'Товар добавлен в избранное!') 
+    : this.noticeService.createToast('success', 'Товар удалён из избранного!');
     
   }
   toggleCart(event: Event): void {
-    event.preventDefault(); // Останавливаем переход по ссылке
+    event.preventDefault();  
+    event.stopPropagation(); 
     this.isCart = !this.isCart;
 
-    this.isCart == true ? this.noticeService.createToast('success', 'Товар добавлен в корзину!') : this.noticeService.createToast('success', 'Товар удалён из корзины!');
+    this.isCart == true 
+    ? this.noticeService.createToast('success', 'Товар добавлен в корзину!') 
+    : this.noticeService.createToast('success', 'Товар удалён из корзины!');
 
   }
 }

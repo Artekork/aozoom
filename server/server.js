@@ -1,8 +1,10 @@
+//server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');  // Импортируйте cors
-const Product = require('./models/model.product');  // Убедитесь, что путь правильный
-const productsRoutes = require('./routes/product-routes');  // Убедитесь, что путь правильный
+const cors = require('cors');  
+const Product = require('./models/model.product');  
+const productsRoutes = require('./routes/server-routes');  
+const cookieParser = require("cookie-parser")
 
 const connectUrl = "mongodb+srv://lampasUser:Artekoko.123@lampas.durta.mongodb.net/lampas";
 const PORT = 3000;
@@ -10,13 +12,16 @@ const PORT = 3000;
 const app = express();
 
 // Настройте CORS
-app.use(cors());  // Разрешите все домены
-
-// Или укажите только ваш фронтенд домен
-// app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000', 'http://localhost:8080', 'http://localhost:4200', '127.0.0.1:3000']
+}
+)); 
 
 app.use(express.json());
 app.use(productsRoutes);
+app.use(cookieParser())
+
 
 mongoose
   .connect(connectUrl, { useNewUrlParser: true, useUnifiedTopology: true })

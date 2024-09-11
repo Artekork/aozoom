@@ -111,12 +111,11 @@
 
         } @else {
           @for (item of filteredProducts(); track $index) {
-            <div class="item">
-              <img src="./assets/img/products/1.png" alt="">
-              <div class="item-text">
-                {{item.name}}
-              </div>
-            </div>
+            <app-search-item
+            [product]="item"
+            >
+              
+            </app-search-item> 
           }
         }
            

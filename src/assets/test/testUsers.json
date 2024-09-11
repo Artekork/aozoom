@@ -1,0 +1,53 @@
+[
+  {
+    "_id": "74659834579502",
+    "userInfo":{
+      "name": "Артём",
+      "surname": "Каравацкий",
+      "phone": "+375291342171",
+      "location": "Могилёв, Гришина - 122, 5",
+      "email": "someMail@gmail.com"
+    },
+    "photo": "data:image/gif;base64,SOMEBASE64IMG",
+    "email": "someMail@gmail.com",    
+    "cart": {
+      "h-001": 2,
+      "h-002": 2,
+      "h-003": 2,
+      "h-004": 2
+    },
+    "favorites": ["i-001", "i-002", "i-003", "i-004"],
+
+    "history": {
+      "order1": {
+        "date": "09.09.2024",
+        "userinfo": {
+          "id": "74659834579502",
+          "name": "Артём",
+          "surname": "Каравацкий",
+          "phone": "+375291342171",
+          "email": "someMail@gmail.com",
+          "location": "Могилёв, Гришина - 122, 5"
+        },
+        "products": {
+          "h-001": {
+            "count": 2,
+            "price": 25.2,
+            "totalPrice": 52 
+          },
+          "h-002": {
+            "count": 2,
+            "price": 45.2,
+            "totalPrice": 92 
+          },
+          "h-003": {
+            "count": 2,
+            "price": 15.2,
+            "totalPrice": 32 
+          }
+        },
+        "totalPrice": 12432
+      }
+    }
+  }
+]

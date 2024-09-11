@@ -1,0 +1,52 @@
+<!-- test.component.html -->
+<form 
+  [formGroup]="form"
+  (ngSubmit) = "onSubmit()"
+>
+  <label class="cooperation-form__label">
+    <input
+    formControlName="email" 
+    type="text" 
+    placeholder="Ваше имя" 
+    class="cooperation-form__input"
+    >
+  </label>
+  
+  <label class="cooperation-form__label">
+    <input
+    formControlName="password" 
+    type="text" 
+    placeholder="Ваше пароль" 
+    class="cooperation-form__input"
+    >
+  </label>
+
+  <button 
+    type="submit" 
+    class="common-btn form-btn"> Зарегаться </button>
+</form>
+
+
+
+<button 
+(click)="onSubmit1()"
+class="common-btn form-btn"> Зарегаться </button>
+
+<button 
+(click)="onSubmit2()"
+class="common-btn form-btn"> Залогиниться </button>
+
+<button 
+(click)="onSubmit3()"
+class="common-btn form-btn"> Узнать инфо </button>
+
+<button 
+(click)="onSubmit4()"
+class="common-btn form-btn"> Разлогиниться </button>
+
+<button 
+(click)="onSubmit5()"
+class="common-btn form-btn"> Залогинен?? </button>
+<button 
+(click)="onSubmit6()"
+class="common-btn form-btn"> Обновить </button>

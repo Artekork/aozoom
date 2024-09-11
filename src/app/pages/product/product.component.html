@@ -1,24 +1,211 @@
-<h1>TITLE PRODUCT PAGE</h1>
-
-<p>
-  id = {{id}}
-</p>
-
-
-<!-- @if (subsc$ | async) {
-  Загрузка, подождите...
+ @if (product(); as product) {
   
-} @else {
-} -->
-<!-- 
-<div *ngIf="isLoading">Загрузка, подождите...</div>
-<div *ngIf="!isLoading">
-  {{ product.name }}
-</div> -->
+  <div class="product-main">
+    <div class="product-images">
+      <div class="product-images__main"> 
 
-@if (product(); as product) {
-  {{ product.name }}
+        <div class="swiper mySwiper2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-5.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-6.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-7.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-8.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-9.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-10.jpg" />
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+          @if (product.isHitProduct == true) {
+            <div class="product-images__main-type type_hit">
+              Хит
+            </div>
+          } @else {
+            <div class="product-images__main-type type_new">
+              Новинка
+            </div>
+          }
+  
+          <div class="product-images__main-heart">
+            <img src="./assets/img/icons/heart-fill.svg" alt="">
+          </div>
+
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-5.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-6.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-7.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-8.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-9.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-10.jpg" />
+            </div>
+          </div>
+        </div>
+
+
+        
+      </div>
+      <div class="product-images__images-list">
+
+
+        
+      </div>
+    </div>
+  
+    <div class="product-small-desc">
+  
+    </div>
+  
+    <div class="product-to-cart">
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  count - {{product.count}}
+  Артикул - {{ product.id }}<br><br>
+  Описание - {{ product.name }}<br><br>
+  Ст. Цена - {{ product.price }}<br><br>
+  Новая цена - {{ product.oldPrice }}<br><br>
+
+  <img class="product-card__img" [src]="product.imagesUrl[0]| imageProductUrl" alt="">
+<br>
+
+<br> Все фото:
+@for (photo of product.imagesUrl; track $index) {
+  <img class="product-card__img" [src]="photo | imageProductUrl" alt="">
+}
+<br> Все малое описание:
+@for (detail of product.details.smallDesc; track $index) {
+  <p class="small-desk"> {{detail}} </p>
+}
+<br> Все большое описание:
+@for (detail of product.details.allDesc; track $index) {
+  <p class="{{ detail.className }}"> {{ detail.inner }} </p>
+}
+
+<br> Все сточные описания:
+<table>
+  @for (detailS of product.details.details; track $index) {
+    <tr>
+      @for (detail of detailS; track $index) {
+        <td> {{ detail }} </td>
+      }
+    </tr>
+  }
+</table>
+
+
+  
+
 
 } @else {
   Загрузка, подождите...
-}
+} 
+
+
