@@ -12,6 +12,7 @@ a{
   --orange-accent-color: #FB6A00;
   --red-accent-color: #FB0000;
   --yellow-accent-color: #FFC200;
+  --pink-accent-color: #FF3263;
   --gray-bg-color: #E6E8EC;
   --gray-bg-section-color: #F1F2F3;
   --dark-bg-section-color: #1D1F2A;
@@ -19,6 +20,7 @@ a{
   --orange-bg-color: #FFF5EE;
   --main-text-color: #000000;
   --gray-text-color: #8F8F9F;
+  --dark-gray-text-color: #70707C;
   --darkGray-text-color: #9797A7;
 
   --common-width: clamp(1100px, 80%, 1320px);
@@ -44,6 +46,7 @@ body{
   background-color: var(--orange-accent-color);
   color: var(--white);
   border-radius: 10px;
+  border: 0;
 }
 .orange-btn {
   background-color: var(--orange-accent-color);

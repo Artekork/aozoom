@@ -1,8 +1,10 @@
 //product-card.component.ts
-import { Component, Input, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { Product } from '../../../data/interfaces/product';
 import { ImageUrlPipe } from "../../../data/helpers/pipes/image-product-url.pipe";
 import { NoticeService } from '../../../data/services/notice.service';
+import { AccountService } from '../../../data/services/account.service';
+import { ProductService } from '../../../data/services/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,31 +14,42 @@ import { NoticeService } from '../../../data/services/notice.service';
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-  @Input() product!: Product 
+  @Input() product!: Product;
+  accountService = inject(AccountService)
+  productService = inject(ProductService);
 
   constructor(private noticeService: NoticeService) {}
 
   isFavorite: boolean = false;
-  isCart: boolean = false;
-
+  
+  
   toggleFavorite(event: Event): void {
     event.preventDefault();  
     event.stopPropagation(); 
     this.isFavorite = !this.isFavorite;
 
-    this.isFavorite == true 
-    ? this.noticeService.createToast('success', 'Товар добавлен в избранное!') 
-    : this.noticeService.createToast('success', 'Товар удалён из избранного!');
-    
+    if (this.isFavorite){
+      this.productService.addToFavorite(this.product.id)
+      this.noticeService.createToast('error', 'Товар добавлен в избранное!') 
+
+    } else {
+      this.productService.removeOnFavorite(this.product.id)
+      this.noticeService.createToast('success', 'Товар удалён из избранного!');
+    }
   }
-  toggleCart(event: Event): void {
+
+
+  ngOnInit(): void {
+    this.isFavorite = this.productService.isFavorite(this.product.id);
+  }
+
+  addCart(event: Event): void {
     event.preventDefault();  
     event.stopPropagation(); 
-    this.isCart = !this.isCart;
 
-    this.isCart == true 
-    ? this.noticeService.createToast('success', 'Товар добавлен в корзину!') 
-    : this.noticeService.createToast('success', 'Товар удалён из корзины!');
-
+    if (this.productService.addToCart(this.product.id)){
+      this.noticeService.createToast('success', 'Товар добавлен в корзину!') 
+    }
   }
 }
+

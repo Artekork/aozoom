@@ -60,7 +60,7 @@ export class TestComponent{
   }
 
   onSubmit3(){
-    this.accountServices.getUserInfo( this.accountServices.token ).subscribe(val => {
+    this.accountServices.getUserInfo().subscribe(val => {
       console.log(val);
     });
   }

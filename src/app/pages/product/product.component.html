@@ -1,111 +1,195 @@
  @if (product(); as product) {
   
-  <div class="product-main">
-    <div class="product-images">
-      <div class="product-images__main"> 
-
-        <div class="swiper mySwiper2">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+  <div class="product-wrapper">
+    <div class="product-main">
+      <div class="product-images">
+        <div class="product-images__main"> 
+          <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+              @for (photo of product.imagesUrl; track $index) {
+                <div class="swiper-slide">
+                  <img class="swiper-slide__img" [src]="photo | imageProductUrl" />
+                </div>
+              }
             </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+  
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+  
+            @if (product.isHitProduct == true) {
+              <div class="product-images__main-type type_hit">
+                Хит
+              </div>
+            } @else {
+              <div class="product-images__main-type type_new">
+                Новинка
+              </div>
+            }
+    
+            <div class="product-images__main-heart">
+              <img 
+                class="product-images__main-heart-img" 
+                (click)="toggleFav()" 
+                [src]="isFavoriteS() ? './assets/img/icons/heart-fill.svg' : './assets/img/icons/heart.svg'" 
+                alt="">
             </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-5.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-6.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-7.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-8.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-9.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-10.jpg" />
+  
+          </div>
+  
+  
+  
+          <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+  
+  
+              @for (photo of product.imagesUrl; track $index) {
+                <div class="swiper-slide">
+                  <img class="swiper-slide__img" [src]="photo | imageProductUrl" />
+                </div>
+              }
+  
+  
+  
+  
+  
             </div>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+  
+  
+  
+  
+  
+  
+        </div>
+      </div>
+    
+      <div class="product-small-desc">
+        <div class="product-small-desc__tittle">
+          {{product.name}}
+        </div>
 
-          @if (product.isHitProduct == true) {
-            <div class="product-images__main-type type_hit">
-              Хит
+
+        <div class="product-small-desc__info">
+          <div class="product-small-desc__info-rating">
+            <div class="info-rating__number">
+              <img class="info-rating__number-img" src="./assets/img/icons/star.svg" alt="">
+              <span class="info-rating__number-text"> {{ product.rating }} </span>
             </div>
-          } @else {
-            <div class="product-images__main-type type_new">
-              Новинка
+            <div class="info-rating__stars">
+
+              @for (star of stars; track $index) {
+                <img class="info-rating__stars-img" 
+                [src]="star == 1 
+                ? './assets/img/icons/star-fill.png' 
+                : './assets/img/icons/star-unfill.png'" 
+                >
+              }
+            </div>
+          </div>
+
+          <div class="vertical-line vertical-line_long"></div>
+  
+          <div class="product-small-desc__selled"> Продано {{product.selled}} </div>
+  
+          <div class="vertical-line vertical-line_short"></div>
+
+          <div class="product-small-desc__article"> Артикул:  {{product.id}} </div>
+        </div>
+
+  
+        <div class="product-small-desc__desc">
+          @for (detail of product.details.smallDesc; track $index) {
+            <p class="small-desk"> {{detail}} </p>
+          }
+        </div>
+
+
+        <div class="product-small-desc__price">
+            <div class="small-desc-price__discount">
+              <img src="./assets/img/icons/discount.png" class="price-discount__img" alt="">
+              -{{discount}}%
+            </div>
+            <div class="small-desc-price__new-price">
+              {{product.price}} руб
+            </div>
+            <div class="small-desc-price__old-price">
+              {{product.oldPrice}} руб
+            </div>
+          
+        </div>
+
+
+      </div>
+    
+      <form 
+      class="product-to-cart"
+      [formGroup]="form"
+      (ngSubmit) = "onSubmit()">
+        <div class="product-to-cart__inner">
+          <p class="to-cart__in-storage">
+            Кол-во на складе: {{product.count}} шт.
+          </p>
+          <div class="to-cart__counter-wrapper">
+            <div class="to-cart__counter-decrease" (click)="decreaseCounter()"></div>
+            <input 
+            class="to-cart__counter" 
+            type="number"
+            formControlName="count"
+            (input)="onInputChange()"
+            placeholder="0"
+            >
+            <div class="to-cart__counter-increase" (click)="increaseCounter()"></div>
+          </div>
+  
+          <div class="to-cart__cost-wrapper">
+            <span class="to-cart__cost-text">
+              Стоимость
+            </span>
+            <span class="to-cart__cost-text to-cart__cost-text_medium">
+              {{cost}} руб
+            </span>
+          </div>
+  
+          <div class="to-cart__buttons">
+            <button type="submit" class="common-btn orange-btn">Добавить в корзину</button>
+            <button type="button" class="common-btn transparent-btn">Купить сейчас</button>
+          </div>
+  
+          <div class="to-cart__garanty">
+            Гарантия 2 нед. с момента покупки
+          </div>
+  
+  
+        </div>
+      </form>
+    </div>
+  
+    <div class="product-info">
+      <div class="product-info__desc">
+        <div class="product-info__tittle">
+          Описание
+        </div>
+        <div class="product-info-desc__desc">
+          @for (detail of product.details.allDesc; track $index) {
+            <p  class="product-info-desc__elem" [class]= detail.className> {{ detail.inner }} </p>
+          }
+        </div>
+      </div>
+  
+      <div class="product-info__characteristic">
+        <p class="product-info__tittle">
+          Характеристики
+        </p>
+        <div class="product-info__list">
+          @for (detailS of product.details.details; track $index) {
+            <div class="product-info__list-elem">
+              @for (detail of detailS; track $index) {
+                <p class="product-info__list-elem-p"> {{ detail }} </p>
+              }
             </div>
           }
-  
-          <div class="product-images__main-heart">
-            <img src="./assets/img/icons/heart-fill.svg" alt="">
-          </div>
-
         </div>
-        <div thumbsSlider="" class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-1.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-2.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-5.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-6.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-7.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-8.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-9.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img class="swiper-slide__img" src="https://swiperjs.com/demos/images/nature-10.jpg" />
-            </div>
-          </div>
-        </div>
-
-
-        
       </div>
-      <div class="product-images__images-list">
-
-
-        
-      </div>
-    </div>
-  
-    <div class="product-small-desc">
-  
-    </div>
-  
-    <div class="product-to-cart">
-  
     </div>
   </div>
   
@@ -119,90 +203,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  count - {{product.count}}
-  Артикул - {{ product.id }}<br><br>
-  Описание - {{ product.name }}<br><br>
-  Ст. Цена - {{ product.price }}<br><br>
-  Новая цена - {{ product.oldPrice }}<br><br>
-
-  <img class="product-card__img" [src]="product.imagesUrl[0]| imageProductUrl" alt="">
-<br>
-
-<br> Все фото:
-@for (photo of product.imagesUrl; track $index) {
-  <img class="product-card__img" [src]="photo | imageProductUrl" alt="">
-}
-<br> Все малое описание:
-@for (detail of product.details.smallDesc; track $index) {
-  <p class="small-desk"> {{detail}} </p>
-}
-<br> Все большое описание:
-@for (detail of product.details.allDesc; track $index) {
-  <p class="{{ detail.className }}"> {{ detail.inner }} </p>
-}
-
-<br> Все сточные описания:
-<table>
-  @for (detailS of product.details.details; track $index) {
-    <tr>
-      @for (detail of detailS; track $index) {
-        <td> {{ detail }} </td>
-      }
-    </tr>
-  }
-</table>
-
-
-  
-
 
 } @else {
   Загрузка, подождите...

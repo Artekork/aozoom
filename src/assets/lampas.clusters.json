@@ -9,7 +9,7 @@
       "isHitProduct": true,
       "isNewProduct": false,
       "price": 199.99,
-      "oldPrice": 123.123,
+      "oldPrice": 223.123,
       "name": "Билед модули Sariti S7 2024, 3 дюйма, 12V, 5500К, встроенный драйвер, 49W/58W, 12V (комплект, 2шт)",
       "rating": 4.6,
       "selled": 556,
@@ -27,71 +27,179 @@
         "allDesc": [
           {
             "className": "product__desc-simple-text",
-            "inner": "Отличная двухчиповая модель с компактными размерами и 2 способами крепления в фаре."
-          },
+            "inner": "Лимитированная серия высококачественных билед линз с 2 чипами и 2 отражателями."
+          },          
+          {
+            "className": "product__desc-simple-text",
+            "inner": "Равномерный и яркий ближний свет. Стг комфортная для вождения как в городских условиях, так и на трассе."
+          },          
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },          
+          {
+            "className": "product__desc-simple-text",
+            "inner": "Модель Aozoom K3 Dragon по прежнему занимает лидирующую строчку рейтинга среди самых современных билед модулей 2024 года. Прочное лидерство модель занимает благодаря надежности, равномерному светораспределению ближнего света и очень яркому пучку дальнего света. Сравнительные тесты на Люксометре дают показатели в режиме дальнего света с задействованным вторым чипом даже выше чем на большинстве моделей с лазерными чипами. Ближний свет с подключенным вторым чипом так же выдает показатели не уступающие большинству дорогостоящих моделей с лазерными элементами."
+          },           
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },           
+          {
+            "className": "product__desc-simple-text_b",
+            "inner": "Теперь дополнительный чип дальнего света можно включать отдельно. Дальний свет стал значительно ярче чем в предыдущей модели."
+          },            
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },          
+          {
+            "className": "product__desc-simple-text_b",
+            "inner": "Оригинальная обновленная версия поставляется в русифицированной упаковке с новым дизайном."
+          },            
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },          
+          {
+            "className": "product__desc-simple-text",
+            "inner": "Модель входит в список лидеров у ретрофит студий с многолетним опытом в сфере улучшения света фар."
+          },          
+          {
+            "className": "product__desc-simple-text",
+            "inner": "Aozoom K3 Dragon Knight New перекрывает по яркости и ширине заливки подавляющее большинство аналогичных по цене и более дорогих моделей других брендов."
+          },             
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },         
+          {
+            "className": "product__desc-simple-text_b",
+            "inner": "Основные параметры:"
+          },          
           {
             "className": "product__desc-list-item",
-            "inner": "Новинка 2024 года от Aozoom"
-          },
+            "inner": "Мощность ближний/дальний: 50/60W"
+          },          
           {
             "className": "product__desc-list-item",
-            "inner": "2 чипа и 2 рефлектора"
-          },
+            "inner": "Яркость на ближнем свете: 4500Лм"
+          },          
           {
             "className": "product__desc-list-item",
-            "inner": "Равномерное светораспределение ближнего света и яркий дальний свет"
-          },
+            "inner": "Яркость на дальнем свете: 6500Лм"
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Цвет белый: 5500K"
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Типоразмер 3.0 дюйма"
-          },
+          },          
           {
             "className": "product__desc-list-item",
-            "inner": "Применимость - для замены штатных линз или для установки в рефлекторные фары."
-          },
+            "inner": "Крепежные отверстия идентичны Hella 3R. Для удобства замены штатных линз можно использовать специальные переходные рамки."
+          },              
           {
-            "className": "product__desc-list-item",
-            "inner": "Крепежные отверстия соответствуют Hella 3R/5R"
-          },
-          {
-            "className": "product__desc-list-item",
-            "inner": " Рабочее напряжение модели от 9 до 16В."
-          },
+            "className": "product__desc-void",
+            "inner": ""
+          },        
           {
             "className": "product__desc-simple-text_b",
-            "inner": "Новинка 2024 года от Aozoom"
-          },
+            "inner": "Комплектация:"
+          },          
           {
             "className": "product__desc-list-item",
-            "inner": "2 оригинальных билед модуля Aozoom Sariti S7 поколения 2024 года"
-          },
+            "inner": "2 оригинальных билед модуля Aozoom K3 Dragon Knight II DK-200 New Original 2024"
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Оригинальная фирменная русскоязычная упаковка"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Заполненный гарантийный талон нашего магазина"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Гарантийная пломба на каждом модуле с датой приобретения"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Гарантийная голограмма Aozoom на каждом модуле с серийным номером"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Прочная упаковка для отправки посылки (при отправках в другие города)"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Бесплатная доставка"
-          },
+          },          
           {
             "className": "product__desc-list-item",
             "inner": "Доставляем по всей России"
+          },              
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },        
+          {
+            "className": "product__desc-simple-text",
+            "inner": "СТГ данной модели имеет легкую размытость, для более комфортного вождения на дальние расстояния. Размытая светотеневая граница снижает усталость глаз в отличие от резкой стг."
+          },                
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },      
+          {
+            "className": "product__desc-list-item",
+            "inner": "Наш магазин является официальным дилером Aozoom в Санкт-Петербурге."
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Фирменную продукцию Aozoom можно приобрести в нашем розничном магазине, а так же с доставкой в любой регион России."
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "С информацией о доставке и оплате можно ознакомиться в разделе 'ДОСТАВКА'"
+          },              
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },        
+          {
+            "className": "product__desc-simple-text_b",
+            "inner": "Подключение:"
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Красный провод - плюс, черный провод - минус (ближний свет)"
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Белый провод - плюс, синий провод - минус (дальний свет - шторка)"
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Желтый провод - плюс (сверхъяркий чип дальнего света) может подключаться как к плюсу ближнего, так и к плюсу дальнего света."
+          },          
+          {
+            "className": "product__desc-list-item",
+            "inner": "Во всех модулях Aozoom установлена защита от неправильной полярности при подключении."
+          },                  
+          {
+            "className": "product__desc-void",
+            "inner": ""
+          },    
+          {
+            "className": "product__desc-simple-text",
+            "inner": "Обратите внимание: сверхяркий дополнительный чип (желтый провод плюс) расчитан и на работу совместно с основным чипом в режиме ближнего света и дальнего света при открытии шторки (питание от плюса ближнего) и на работу только при режиме дальнего света (питание от плюса дальнего). Допустим любой вариант подключения."
+          },          
+          {
+            "className": "product__desc-simple-text",
+            "inner": "На некоторых автомобилях в силу особенностей электроники света доп чип может быть подключен только от плюса ближнего света, если при питании его от плюса дальнего света бортовой компьютер выдает ошибки."
           }
         ],
         "details": [
@@ -209,7 +317,7 @@
       "isHitProduct": false,
       "isNewProduct": false,
       "price": 199.99,
-      "oldPrice": 0,
+      "oldPrice": 300,
       "name": "Билед модули Optima Pro 4.0, 3 дюйма, 12V, 6000K, 45W",
       "rating": 4.5,
       "selled": 290,
@@ -505,7 +613,7 @@
       "isHitProduct": false,
       "isNewProduct": true,
       "price": 159.99,
-      "oldPrice": 0,
+      "oldPrice": 400,
       "name": "Билед модули CompactBeam 2.0, 3 дюйма, 12V, 5500K, 50W",
       "rating": 4.3,
       "selled": 380,

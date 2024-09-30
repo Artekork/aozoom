@@ -22,15 +22,18 @@
       <div class="product-card__info-selled">
         Продано {{product.selled}}
       </div>
-      <div class="product-card__info-basket" (click)="toggleCart($event)">
+      <div class="product-card__info-basket" (click)="addCart($event)">
         <img class="product-card__info-basket-img" src="./assets/img/icons/basket.svg" alt="">
       </div>
     </div>
   </div>
-  <div class="product-card__heart" (click)="toggleFavorite($event)">
+  <div class="product-card__heart" 
+  (click)="toggleFavorite($event)">
     <img 
     class="product-card__heart-img" 
-    [src]="isFavorite ? './assets/img/icons/heart-fill.svg' : './assets/img/icons/heart.svg'" 
+    [src]="isFavorite 
+    ? './assets/img/icons/heart-fill.svg' 
+    : './assets/img/icons/heart.svg'" 
     alt="heart icon">
   </div>
 

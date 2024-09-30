@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Account } from '../interfaces/account';
 import { CookieService } from 'ngx-cookie-service';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -33,14 +34,25 @@ export class AccountService {
     return this.http.put<any>(`${this.apiUrl}/updateInfo`, { userInfo: userInfo });
   }
 
-  getUserInfo(token: string){
-    return this.http.get<Account>("http://localhost:3000/getUserInfo", { 
-      params: { token } 
-    });
+  getUserInfo(){
+    if (this.isLoggedIn()) {
+      // Если пользователь авторизован, делаем HTTP-запрос
+      console.log('autorized')
+      return this.http.get<Account>("http://localhost:3000/getUserInfo", { 
+        params: { token: this.token }
+      });
+    } else {
+      // Если пользователь не авторизован, возвращаем данные из куки
+      console.log('NONautorized')
+      const userInfo = this.cookieService.get('userInfo');
+      return of(JSON.parse(userInfo));  // Преобразуем данные из куки в Observable
+    }
   }
 
+  
+
   logout(){
-    this.cookieService.delete('jwt', '/');
+    this.cookieService.delete('jwt', '/')
   }
 
   setToken(token: string): void {
@@ -52,11 +64,6 @@ export class AccountService {
     return this.cookieService.check('jwt');
   }
 
-  addToCart(){
-
-  }
-
-  addToFavorite(){
+  
     
-  }
 }
