@@ -1,7 +1,7 @@
 //product-section.component.ts
 import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../../data/interfaces/product';
-import { GetProductService } from '../../../data/services/get-product.service';
+import { ProductService } from '../../../data/services/product.service';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { RouterModule } from '@angular/router';
@@ -21,11 +21,11 @@ export class ProductSectionComponent {
   @Input() filter?: any;
   @Input() buttonLink?: string;
 
-  getProductServices = inject(GetProductService);
+  productService = inject(ProductService);
 
   products: Product[] = [];
   
-  // subscribers$ = this.getProductServices.getProducts(this.filter); 
+  // subscribers$ = this.productService.getProducts(this.filter); 
 
   constructor() { }
 
@@ -34,7 +34,7 @@ export class ProductSectionComponent {
   }
 
   loadProducts(): void {
-    this.getProductServices.getProducts(this.filter).subscribe(val => {
+    this.productService.getProducts(this.filter).subscribe(val => {
       this.products = val;
     });
   }

@@ -1,0 +1,70 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.cart-list__options {
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--gray-text-color);
+
+  font-size: 16px;
+  font-weight: 300;
+  text-wrap: nowrap;
+}
+.cart-list__main-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.cart-list__main-checkbox-label{
+  border-radius: 13px;
+  height: 25px;
+  width: 25px;
+  min-height: 25px;
+  min-width: 25px;
+  max-height: 25px;
+  max-width: 25px;
+  border: 2px solid var(--semi-gray-color);
+  overflow: hidden;
+  background: center no-repeat url('/assets/img/icons/tick.svg');
+  
+}
+.checkbox-active{
+  background-color: var(--orange-accent-color);
+  border-color: var(--orange-accent-color);
+}
+.cart-list__main-checkbox {
+  height: 20px;
+  width: 20px;
+  border: 0;
+  visibility: hidden;
+}
+.cart-list__main-checkbox-text {
+}
+  
+.cart-list__main-actions {
+  display: flex;
+  gap: 30px;
+}
+.cart-list__main-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cart-list__main-action-img {
+}
+.cart-list__option-text {
+}
+.cart-list__list {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.cart-list__item {
+}

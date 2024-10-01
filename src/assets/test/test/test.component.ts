@@ -24,9 +24,15 @@ export class TestComponent{
     password: this.fb.control("", Validators.required),
   })
 
-  constructor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService) {
+  }
 
-
+  
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    
+  }
 
   //accounts method
   onSubmit() {

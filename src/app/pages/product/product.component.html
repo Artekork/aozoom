@@ -129,7 +129,7 @@
           <p class="to-cart__in-storage">
             Кол-во на складе: {{product.count}} шт.
           </p>
-          <div class="to-cart__counter-wrapper">
+          <!-- <div class="to-cart__counter-wrapper">
             <div class="to-cart__counter-decrease" (click)="decreaseCounter()"></div>
             <input 
             class="to-cart__counter" 
@@ -139,7 +139,17 @@
             placeholder="0"
             >
             <div class="to-cart__counter-increase" (click)="increaseCounter()"></div>
+          </div> -->
+
+          <div class="to-cart__counter-wrapper">
+            <app-product-counter
+            [minValue]="0"
+            [maxValue]="product?.count || 0"
+            [initialValue]="counter"
+            (valueChange)="onCounterChange($event)"></app-product-counter>
           </div>
+          
+
   
           <div class="to-cart__cost-wrapper">
             <span class="to-cart__cost-text">
@@ -194,16 +204,6 @@
   </div>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
 } @else {
   Загрузка, подождите...
 } 

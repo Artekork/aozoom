@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Account } from '../interfaces/account';
 import { CookieService } from 'ngx-cookie-service';
-import { of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 
 
 @Injectable({
@@ -49,9 +49,35 @@ export class AccountService {
     }
   }
 
+
+  getUserCart(): Observable<[string, number][]> {
+    return this.getUserInfo().pipe(
+      map(val => {
+        if (this.isLoggedIn()) {
+          console.log('если пользователь залогинен');
+          return [["h-001", 1], ["h-002", 5]]; // Или другой подходящий результат
+        }
+  
+        let mass: [string, number][] = [];
+        if (val.cart) {
+          let obj: { [key: string]: number } = val.cart; // Убедитесь, что это действительно объект
+  
+          for (let elem in obj) {
+            mass.push([elem, obj[elem as keyof typeof obj]]);
+          }
+        }
+        return mass;
+      })
+    );
+  }
+  
+   
+
+
+
   
 
-  logout(){
+  logout(): void{
     this.cookieService.delete('jwt', '/')
   }
 

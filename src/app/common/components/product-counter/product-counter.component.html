@@ -1,0 +1,20 @@
+<div class="to-cart__counter-wrapper">
+  <button 
+  class="to-cart__counter-decrease" 
+  [disabled]="value <= minValue" 
+  (click)="decrease()"></button>
+  <input 
+  class="to-cart__counter" 
+  type="number"
+  formControlName="count"
+  [value]="value"
+  (input)="onInputChange($event)"
+  placeholder="0"
+  >
+  <button 
+  class="to-cart__counter-increase" 
+  [disabled]="value >= maxValue" 
+  (click)="increase()"></button>
+</div>
+
+

@@ -18,10 +18,11 @@ a{
   --dark-bg-section-color: #1D1F2A;
   --gray-border-color: #E2E4E9;
   --orange-bg-color: #FFF5EE;
-  --main-text-color: #000000;
   --gray-text-color: #8F8F9F;
   --dark-gray-text-color: #70707C;
   --darkGray-text-color: #9797A7;
+  --semi-gray-color: #B8BCC5;
+  
 
   --common-width: clamp(1100px, 80%, 1320px);
 }
@@ -60,7 +61,25 @@ body{
 .orange-text{
   color: var(--orange-accent-color);
 }
+.cross-text{
+  color: #8F8F9F;
+  position: relative;
 
+  &::before{
+    content: "";
+    border-bottom: 2px solid var(--orange-accent-color);
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transform: rotate(-6deg);
+  }
+}
+.unselectable{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 
 //notice

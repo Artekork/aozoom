@@ -1,11 +1,14 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { AccountService } from './account.service';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  http = inject(HttpClient);
 
 
   accountService = inject(AccountService)
@@ -160,4 +163,43 @@ export class ProductService {
     
     return true
   }
+
+  calcDiscount(oldPrice: number, price: number){
+    return Math.round((1-(price/oldPrice))*100)
+  }
+
+
+
+
+
+
+
+  getProducts(filter: any){
+    return this.http.get<Product[]>("http://localhost:3000/getProducts", { params: filter });
+  }
+
+  getProduct(productId: string){
+    return this.http.get<Product>(`http://localhost:3000/getProduct/${productId}`);
+  }
+
+  filteredProductsS = signal<Product[]>([])
+  getProductsFiltered(findWord: string){
+    const params = new HttpParams().set('findWord', findWord);
+    return this.http.get<Product[]>("http://localhost:3000/getProductsFiltered", { params });
+  }
+
+  getCartProducts(cart: [string, number][]){
+    let cartProducts:[Product, number][] = [];
+    for (let elem in cart){
+      
+
+      this.getProduct(cart[elem][0]).subscribe(val => {
+        cartProducts.push([val, cart[elem][1]])
+      })
+    }
+
+    return cartProducts;
+  }
+
+  
 }

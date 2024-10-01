@@ -1,7 +1,7 @@
 //header.component.ts
 import { Component, inject, Inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { GetProductService } from '../../../data/services/get-product.service';
+import { ProductService } from '../../../data/services/product.service';
 import { Product } from '../../../data/interfaces/product';
 import { debounceTime, Subject } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -21,7 +21,7 @@ export class HeaderComponent {
   isActiveSearch = signal<boolean>(false);
 
   products: Product[] = [];
-  getProductService = inject(GetProductService)
+  getProductService = inject(ProductService)
   
   subscribers$ = this.getProductService.getProducts(this.findWord)
 

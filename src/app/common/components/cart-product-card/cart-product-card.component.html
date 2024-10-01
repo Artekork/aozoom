@@ -1,0 +1,77 @@
+<label [ngClass]="{'checkbox-active': isChecked, 'cart-list__card-checkbox-label': true}">
+  <input class="cart-list__card-checkbox" type="checkbox" [(ngModel)]="isChecked"> 
+</label>
+
+<div class="cart-list__card">
+
+  <div class="card__img-cont">
+    <img [src]="product.imagesUrl[0]| imageProductUrl" class="card__img" alt="">
+
+    <img class="product-card__img"  alt="">
+    
+  </div>
+
+  <div class="card-info">
+    <div class="card-info__top">
+      <div class="card-info__top-desc">
+        <div class="card-info__top-desc-text">
+          {{product.name}}
+        </div>
+        <div (click)="productService.removeOnCart('asd')" class="card-info__top-delete">
+          <img class="card-info__top-side-rating-img" src="./assets/img/icons/delete.svg" alt="">
+        </div>
+      </div>
+
+      <div class="card-info__top-side">
+        <div class="card-info__top-side-rating">
+          <img class="card-info__top-side-rating-img" src="./assets/img/icons/star.svg" alt=""> {{product.rating}}
+        </div>
+        <div (click)="toFav()" class="card-info__top-side-fav"> 
+          @if (isFavorite) { Убрать из избранного} 
+          @else { Добавить в избранное}
+        </div>
+      </div>
+    </div>
+
+    <div class="card-info__bottom">
+      <div class="card-info__bottom-info">
+        <div class="card-info__bottom-info-article">
+          Артикул: {{product.id}}
+        </div>
+        <div class="card-info__bottom-info-price">
+          
+          <div class="card-info__bottom-info-new-price">
+            {{product.price}} руб
+          </div>
+
+          <div class="card-info__bottom-info-old-price cross-text">
+            {{product.oldPrice}} руб
+
+          </div>
+
+
+          <div class="card-info__bottom-info-discount">
+            -{{discount}}%
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-info__bottom-counter-cont">
+        <div class="card-info__counter-stock">
+          Наличие на складе: <span class="orange-text"> 
+            @if (product.count == 0) { нет } @else { есть } 
+          </span>
+        </div>
+
+        <app-product-counter
+            [minValue]="0"
+            [maxValue]="product.count || 0"
+            [initialValue]="productCount"
+            (valueChange)="onCounterChange($event)"></app-product-counter>
+
+      </div>
+    </div>
+  </div>
+
+</div>

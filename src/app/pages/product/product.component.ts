@@ -1,7 +1,6 @@
 //product.component.ts
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, inject, Input, PLATFORM_ID, signal, SimpleChanges } from '@angular/core';
-import { GetProductService } from '../../data/services/get-product.service';
 import { Product } from '../../data/interfaces/product';
 import { ImageUrlPipe } from "../../data/helpers/pipes/image-product-url.pipe";
 import { ChangeDetectorRef } from '@angular/core';
@@ -19,10 +18,11 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../../data/services/account.service';
 import { NoticeService } from '../../data/services/notice.service';
 import { ProductService } from '../../data/services/product.service';
+import { ProductCounterComponent } from "../../common/components/product-counter/product-counter.component";
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, ImageUrlPipe, ReactiveFormsModule],
+  imports: [CommonModule, ImageUrlPipe, ReactiveFormsModule, ProductCounterComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
@@ -30,9 +30,8 @@ export class ProductComponent {
   @Input() id: string = "";
   swiper!: Swiper;
   swiper2!: Swiper;
-  getProductServices = inject(GetProductService);
-  accountService = inject(AccountService);
   productService = inject(ProductService);
+  accountService = inject(AccountService);
 
   product = signal<Product | null>(null);
 
@@ -57,63 +56,6 @@ export class ProductComponent {
     private noticeService: NoticeService
   ) { }
 
-  calcCost(): void {
-    this.cost = Number((this.counter * this.product()!.price).toFixed(2))
-  }
-
-  isMoreThan(): boolean {
-    if (Number(this.form.get('count')?.value) >= this.product()!.count) {
-      return true
-    }
-    else {
-      return false
-    }
-  }
-  isLessThan(): boolean {
-    if (Number(this.form.get('count')?.value) <= 0) {
-      return true
-    }
-    else {
-      return false
-    }
-  }
-
-  onInputChange(): void{
-    if (this.isMoreThan()) {
-      this.counter = this.product()!.count;
-    }
-    else {
-      this.counter = Math.round(Number(this.form.get('count')?.value)) || 0; // Обновляем counter на основе ввода
-    }
-    this.updateFormValue()
-    this.calcCost();
-  }
-
-  increaseCounter(): void {
-    if (!this.isMoreThan()) {
-      this.counter++;
-    }
-    this.updateFormValue();
-    this.calcCost();
-  }
-
-  decreaseCounter(): void {
-    if (!this.isLessThan()) {
-      this.counter--;
-    }
-    this.updateFormValue();
-    this.calcCost();
-  }
-
-  updateFormValue(): void {
-    this.form.patchValue({ count: Math.round(this.counter) }); // Синхронизируем значение формы с counter
-  }
-  
-  onSubmit(): void {
-    this.productService.addToCart(this.id, this.form.value.count!);
-  }
-
-
 
   ngAfterViewInit(): void {
     
@@ -133,6 +75,24 @@ export class ProductComponent {
 
   }
 
+  onCounterChange(newCounterValue: number): void {
+    this.counter = newCounterValue;
+    this.updateFormValue();
+    this.calcCost();
+  }
+
+  updateFormValue(): void {
+    this.form.patchValue({ count: Math.round(this.counter) }); // Синхронизируем значение формы с counter
+  }
+
+  calcCost(): void {
+    this.cost = Number((this.counter * this.product()!.price).toFixed(2))
+  }
+  
+  onSubmit(): void {
+    this.productService.addToCart(this.id, this.form.value.count!);
+  }
+
   ngOnInit(): void {
     this.loadProduct();
   }
@@ -142,7 +102,7 @@ export class ProductComponent {
   }
 
   loadProduct(): void {
-    this.getProductServices.getProduct(this.id).subscribe( val => {
+    this.productService.getProduct(this.id).subscribe( val => {
 
       if (isPlatformBrowser(this.platformId)) {
         this.swiper = new Swiper(".mySwiper", {
@@ -170,7 +130,7 @@ export class ProductComponent {
 
       this.product.set(val);
 
-      this.discount = Math.round((1-(val.price/val.oldPrice))*100)
+      this.discount = this.productService.calcDiscount(val.oldPrice, val.price)
       
       for (let i = 0; i < Math.round(val.rating); i++){
         this.stars[i] = 1;

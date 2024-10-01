@@ -1,0 +1,26 @@
+:host{
+  display: flex;
+  background-color: var(--gray-bg-section-color);
+}
+
+.cart-wrapper {
+  width: var(--common-width);
+  margin:  0 auto;
+}
+
+.cart-inner{
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+}
+
+.cart-tittle {
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.cart-aside{
+  display: flex;
+  position: sticky;
+  top: 100px;
+}
