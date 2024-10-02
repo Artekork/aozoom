@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductCounterComponent } from "../product-counter/product-counter.component";
 import { ProductService } from '../../../data/services/product.service';
@@ -17,7 +17,7 @@ import { ImageUrlPipe } from "../../../data/helpers/pipes/image-product-url.pipe
 export class CartProductCardComponent {
   @Input() product!: Product; 
   @Input() productCount!: number; 
-
+  @Output() productDeleted: EventEmitter<string> = new EventEmitter(); 
 
   
   isChecked: boolean = true;
@@ -48,16 +48,15 @@ export class CartProductCardComponent {
     this.discount = this.productService.calcDiscount(this.product.oldPrice, this.product.price)
   }
 
-  deleteCart(): void { //todo добавить диалогоовое окно для подтверждения удаления
-
+  deleteCard(): void { //todo добавить диалогоовое окно для подтверждения удаления
+    this.productService.removeOnCart(this.product.id)
+    this.noticeService.createToast('success', 'Товар удалён из корзины!');
+    this.productDeleted.emit(this.product.id);
   }
 
   onCounterChange(newCounterValue: number): void {
     // this.counter = newCounterValue;
     // this.updateFormValue();
-    // this.calcCost();
+    // this.calcCost()
   }
-
-
- 
 }

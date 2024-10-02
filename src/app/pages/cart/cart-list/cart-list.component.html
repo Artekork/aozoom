@@ -2,10 +2,9 @@
   <div class="cart-list__main-checkbox-container">
 
     <label [ngClass]="{'checkbox-active': isAllChecked, 'cart-list__main-checkbox-label': true}">
-      <input class="cart-list__main-checkbox"  type="checkbox" [(ngModel)]="isAllChecked"> as
+      <input class="cart-list__main-checkbox"  type="checkbox" [(ngModel)]="isAllChecked"> _
     </label>
 
-    <!-- {{isAllChecked}} -->
 
     <div class="cart-list__main-checkbox-text">
       Выбрано {{currentProducts}} из {{cartProductCount}}
@@ -29,6 +28,7 @@
     <app-cart-product-card 
     [product]="product[0]"
     [productCount]="product[1]"
+    (productDeleted)="onProductDeleted($event)"
     ></app-cart-product-card>
   }
   

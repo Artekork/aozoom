@@ -45,7 +45,12 @@ export class AccountService {
       // Если пользователь не авторизован, возвращаем данные из куки
       console.log('NONautorized')
       const userInfo = this.cookieService.get('userInfo');
-      return of(JSON.parse(userInfo));  // Преобразуем данные из куки в Observable
+      if (userInfo && userInfo.trim() !== '') {
+        return of(JSON.parse(userInfo));  // Преобразуем данные из куки в Observable
+      } else {
+        console.warn('User info in cookies is missing or empty');
+        return of(null);  // Возвращаем null или другое значение по умолчанию
+      }
     }
   }
 
@@ -59,13 +64,15 @@ export class AccountService {
         }
   
         let mass: [string, number][] = [];
-        if (val.cart) {
-          let obj: { [key: string]: number } = val.cart; // Убедитесь, что это действительно объект
-  
-          for (let elem in obj) {
-            mass.push([elem, obj[elem as keyof typeof obj]]);
+        if (val != null) {
+          if (val.cart) {
+            let obj: { [key: string]: number } = val.cart; // Убедитесь, что это действительно объект
+    
+            for (let elem in obj) {
+              mass.push([elem, obj[elem as keyof typeof obj]]);
+            }
           }
-        }
+        } 
         return mass;
       })
     );

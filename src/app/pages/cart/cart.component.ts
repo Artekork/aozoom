@@ -14,7 +14,4 @@ import { ProductService } from '../../data/services/product.service';
 })
 export class CartComponent {
 
-  
-  
-
 }
