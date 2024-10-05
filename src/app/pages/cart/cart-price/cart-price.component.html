@@ -1,1 +1,46 @@
-<p>cart-price works!</p>
+<div class="cart-price__container">
+  <div class="cart__price cart__price_big">
+     <p> Итого</p> 
+     <p class="cart__price_bold">{{cartService.orderState.price}} руб</p>
+  </div>
+  <div class="cart__price">
+    <p>
+      {{cartService.orderState.quantity}} 
+      {{getNoun(cartService.orderState.quantity, 'товар', 'товара', 'товаров')}}
+    </p>
+     <p>{{cartService.orderState.fullPrice}} руб</p>
+  </div>
+  <div class="cart__price">
+     <p> Скидка 
+      <span class="cart__price_pink">
+        @if (!isNan(cartService.orderState.discount)) {
+          (-{{cartService.orderState.discount}}%)
+        } @else {
+          (-0%)
+        }
+      </span>
+    </p> 
+     <p class="cart__price_gray">-{{cartService.orderState.discountPrice}} руб</p>
+  </div>
+</div>
+
+<div class="cart-details">
+  <div class="cart__detail">
+    <p> Адрес получения </p> 
+    <p class="orange-text"> {{cartService.orderState.address}} </p>
+ </div>
+ <div class="cart__detail">
+   <p> Способ доставки </p> 
+   <p class="orange-text"> {{cartService.orderState.delivery}} </p>
+  </div>
+  <div class="cart__detail">
+    <p> Способ оплаты </p> 
+    <p class="orange-text"> {{cartService.orderState.payment}} </p>
+  </div>
+</div>
+
+<button class="orange-btn"> Заказать </button>
+
+<span class="policy">
+  Соглашаюсь c <span (click)="openLicense()" class="orange-text policy_orange">пользовательским соглашением</span> и <span class="orange-text policy_orange">политикой обработкой персональных данных</span>
+</span>

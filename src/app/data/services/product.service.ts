@@ -189,12 +189,12 @@ export class ProductService {
   }
 
   getCartProducts(cart: [string, number][]){
-    let cartProducts:[Product, number][] = [];
+    let cartProducts:[Product, number, boolean][] = [];
     for (let elem in cart){
       
 
       this.getProduct(cart[elem][0]).subscribe(val => {
-        cartProducts.push([val, cart[elem][1]])
+        cartProducts.push([val, cart[elem][1], true])
       })
     }
 

@@ -1,5 +1,5 @@
 <label [ngClass]="{'checkbox-active': isChecked, 'cart-list__card-checkbox-label': true}">
-  <input class="cart-list__card-checkbox" type="checkbox" [(ngModel)]="isChecked"> 
+  <input class="cart-list__card-checkbox" type="checkbox" [(ngModel)]="isChecked" (change)="onChangeCheckbox()"> 
 </label>
 
 <div class="cart-list__card">
@@ -60,15 +60,16 @@
       <div class="card-info__bottom-counter-cont">
         <div class="card-info__counter-stock">
           Наличие на складе: <span class="orange-text"> 
-            @if (product.count == 0) { нет } @else { есть } 
+            @if (product.count == 0) { нет } @else { {{product.count}} } 
           </span>
         </div>
 
         <app-product-counter
-            [minValue]="0"
-            [maxValue]="product.count || 0"
-            [initialValue]="productCount"
-            (valueChange)="onCounterChange($event)"></app-product-counter>
+          [minValue]="0"
+          [maxValue]="product.count || 0"
+          [initialValue]="productCount"
+          (valueChange)="onCounterChange($event)">
+        </app-product-counter>
 
       </div>
     </div>

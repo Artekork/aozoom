@@ -1,35 +1,41 @@
+@if (cartService.cartProducts().length > 0){
 <div class="cart-list__options">
   <div class="cart-list__main-checkbox-container">
-
-    <label [ngClass]="{'checkbox-active': isAllChecked, 'cart-list__main-checkbox-label': true}">
-      <input class="cart-list__main-checkbox"  type="checkbox" [(ngModel)]="isAllChecked"> _
+    <label [ngClass]="{'checkbox-active': cartService.isAllChecked, 'cart-list__main-checkbox-label': true}">
+      <input class="cart-list__main-checkbox"  type="checkbox" [(ngModel)]="cartService.isAllChecked" (change)="onChangeCheckbox()"> _
     </label>
-
-
     <div class="cart-list__main-checkbox-text">
-      Выбрано {{currentProducts}} из {{cartProductCount}}
+      Выбрано {{cartService.currentProducts()}} из {{cartService.cartProductCount()}}
     </div>
   </div>
   <div class="cart-list__main-actions">
-    <div class="cart-list__main-action">
+    <div class="cart-list__main-action" (click)="deleteSelectedProducts()" >
       <img src="/assets/img/icons/delete.svg" class="cart-list__main-action-img" alt="">
       <p class="cart-list__option-text">Удалить выбранное</p>
     </div>
-    <div class="cart-list__main-action">
-      <img src="/assets/img/icons/arrow.svg" class="cart-list__main-action-img" alt="">
+    <div class="cart-list__main-action" (click)="sortByPrice()">
+      <img 
+      src="/assets/img/icons/arrow.svg" 
+      [ngClass]="{'cart-list__main-action-img_r': (sortBy === 'asc') , 'cart-list__main-action-img': true}"
+      alt="">
       <p class="cart-list__option-text">Сортировать <span class="orange-text"> по цене </span></p>
     </div>
   </div>
 </div>
 
-<div class="cart-list__list">
-
-  @for (product of products; track product[0].id) {
-    <app-cart-product-card 
-    [product]="product[0]"
-    [productCount]="product[1]"
-    (productDeleted)="onProductDeleted($event)"
-    ></app-cart-product-card>
-  }
-  
-</div>
+  <div class="cart-list__list">
+    @for (product of cartService.cartProducts(); track product[0].id) {
+      <div class="cart-list__item">
+        
+      </div>
+      <app-cart-product-card 
+        [product]="product[0]" 
+        [productCount]="product[1]" 
+        [isChecked]="product[2]"
+        (productDeleted)="cartService.onProductDeleted($event)">
+      </app-cart-product-card>
+    }
+  </div>
+} @else {
+  Сори, тут ничего неееееет
+}

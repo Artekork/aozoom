@@ -5,6 +5,7 @@
   border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr;
+  overflow: hidden;
 }
 .cart-list__options {
   padding: 20px;
@@ -58,6 +59,9 @@
   align-items: center;
   gap: 10px;
 }
+.cart-list__main-action-img_r{
+  transform: rotate(180deg);
+}
 .cart-list__main-action-img {
 }
 .cart-list__option-text {
@@ -66,5 +70,6 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
 .cart-list__item {
 }

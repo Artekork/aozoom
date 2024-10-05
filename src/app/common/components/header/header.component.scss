@@ -74,6 +74,8 @@
 }
 .header__logo-img {
   max-width: 20px;
+  height: 20px;
+  aspect-ratio: 1/1;
 }
 .header__tittle-text {
   font-size: 32px;
@@ -114,6 +116,7 @@
   display: flex;
   gap: 60px;
   justify-content: right;
+  align-items: center;
 }
 
 .search-items{
